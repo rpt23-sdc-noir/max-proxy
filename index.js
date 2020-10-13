@@ -16,4 +16,14 @@ app.use('/', createProxyMiddleware({
   changeOrigin: true
 }));
 
+app.use('/', createProxyMiddleware({
+  target: 'http://localhost:1000',
+  changeOrigin: true
+}));
+
+app.use('/songdata', createProxyMiddleware({
+  target: 'http://localhost:1000',
+  changeOrigin: true
+}));
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
