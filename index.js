@@ -16,8 +16,23 @@ app.use('/', createProxyMiddleware({
   changeOrigin: true
 }));
 
-app.use('/', createProxyMiddleware({
-  target: 'http://localhost:1000',
+app.use('/comments', createProxyMiddleware({
+  target: 'http://localhost:4000',
+  changeOrigin: true
+}));
+
+app.use('/hashtags', createProxyMiddleware({
+  target: 'http://localhost:4000',
+  changeOrigin: true
+}));
+
+app.use('/users', createProxyMiddleware({
+  target: 'http://localhost:4000',
+  changeOrigin: true
+}));
+
+app.use('/artistBio', createProxyMiddleware({
+  target: 'http://localhost:2000',
   changeOrigin: true
 }));
 
