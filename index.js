@@ -36,10 +36,9 @@ app.use('/users/', createProxyMiddleware({
   changeOrigin: true
 }))
 
-app.use('/', createProxyMiddleware({
-  target: 'http://localhost:1000',
-  changeOrigin: true
-}))
+app.use('/:current', (req, res) => {
+  res.sendFile(path.join(__dirname,'/public/index.html'));
+})
 
 app.use('/', createProxyMiddleware({
   target: 'http://localhost:1000',
