@@ -12,7 +12,7 @@ app.use('/songdata/', createProxyMiddleware({
 }));
 
 app.use('/relatedTracks/', createProxyMiddleware({
-  target: 'http://localhost:3001',
+  target: 'http://3.15.220.99:3001',
   changeOrigin: true
 }))
 
