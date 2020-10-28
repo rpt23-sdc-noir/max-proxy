@@ -7,7 +7,7 @@ const port = 80;
 app.use(express.static('public'));
 
 app.use('/songdata/', createProxyMiddleware({
-  target: 'http://localhost:1000',
+  target: 'http://52.37.102.63:3005',
   changeOrigin: true
 }));
 
@@ -39,11 +39,6 @@ app.use('/users/', createProxyMiddleware({
 app.use('/:current', (req, res) => {
   res.sendFile(path.join(__dirname,'/public/index.html'));
 })
-
-app.use('/', createProxyMiddleware({
-  target: 'http://localhost:1000',
-  changeOrigin: true
-}))
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
