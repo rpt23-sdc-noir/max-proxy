@@ -2,37 +2,37 @@ const express = require('express');
 const {createProxyMiddleware} = require('http-proxy-middleware');
 const app = express();
 const path = require('path');
-const port = 80;
+const port = 8880;
 
 app.use(express.static('public'));
 
 app.use('/songdata/', createProxyMiddleware({
-  target: 'http://52.37.102.63:3005',
+  target: 'http://localhost:3005',
   changeOrigin: true
 }));
 
 app.use('/relatedTracks/', createProxyMiddleware({
-  target: 'http://3.15.220.99:3001',
+  target: 'http://localhost:3001',
   changeOrigin: true
 }))
 
 app.use('/artistBio/', createProxyMiddleware({
-  target: 'http://34.220.154.45:2000',
+  target: 'http://localhost:2000',
   changeOrigin: true
 }))
 
 app.use('/comments/', createProxyMiddleware({
-  target: 'http://52.14.128.124:4000',
+  target: 'http://localhost:4000',
   changeOrigin: true
 }))
 
 app.use('/hashtags/', createProxyMiddleware({
-  target: 'http://18.189.26.97:4001',
+  target: 'http://localhost:4001',
   changeOrigin: true
 }))
 
 app.use('/users/', createProxyMiddleware({
-  target: 'http://18.218.58.9:4002/',
+  target: 'http://localhost:4002/',
   changeOrigin: true
 }))
 
