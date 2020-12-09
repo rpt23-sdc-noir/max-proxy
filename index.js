@@ -1,9 +1,12 @@
+require('newrelic');
 const express = require('express');
 const {createProxyMiddleware} = require('http-proxy-middleware');
 const app = express();
 const path = require('path');
 const port = 8880;
+const morgan = require('morgan');
 
+app.use(morgan('dev'));
 app.use(express.static('public'));
 
 app.use('/songdata/', createProxyMiddleware({
@@ -41,4 +44,3 @@ app.use('/:current', (req, res) => {
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
